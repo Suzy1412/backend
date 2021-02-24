@@ -1,7 +1,7 @@
 const express = require("express")
 const mongoose = require("mongoose")
-const Todo = require("../modele/todo")
-const Nutzer = require("../modele/nutzer")
+const Todo = require("./modele/todo")
+const Nutzer = require("./modele/nutzer")
 
 const app = express()
 app.use(express.json())
@@ -27,15 +27,15 @@ mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
   })
   
   app.post("/nutzer" , (req,res) => {
-      console.log(req.body);
-      Nutzer.create(req.body).then(ergebniss => res.json(ergebniss))
+      /*console.log(req.body);
+      Nutzer.create(req.body).then(ergebniss => res.json(ergebniss))*/
 
-    /*const newNutzer = new Nutzer({
+    const newNutzer = new Nutzer({
         name: req.body.name,
         password: req.body.password,
         email: req.body.email
     })
-    newNutzer.save().then(ergebnissNutzer => res.status(201).json(ergebnissNutzer)).catch(fehler => res.status(500).json({error:fehler}))*/
+    newNutzer.save().then(ergebnissNutzer => res.status(201).json(ergebnissNutzer)).catch(fehler => res.status(500).json({error:fehler}))
 })
 
 
